@@ -19,6 +19,7 @@ for /f %%G in ('dir /b /o:n /ad') do (
 			Xcopy /E /I site temp_build\site
 			Xcopy /E /I site temp_build\admin
 			Xcopy /E /I /Y admin temp_build\admin
+			copy lang_%%G.xml temp_build\
 			cd temp_build
 			zip -r ../../%%G.zip site admin lang_%%G.xml
 		popd
