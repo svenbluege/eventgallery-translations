@@ -1,7 +1,7 @@
 # How to create a language package for Event Gallery
 
 There is a good description on how to create a language package for Joomla.
-(https://docs.joomla.org/J3.x:Making_a_Language_Pack_for_Joomla)
+(https://docs.joomla.org/J2.5:Making_non-core_language_packs)
 
 # How to build language packs
 
