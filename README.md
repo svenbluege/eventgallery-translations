@@ -3,9 +3,12 @@
 There is a good description on how to create a language package for Joomla.
 (https://docs.joomla.org/J2.5:Making_non-core_language_packs)
 
+Please add the backend translation to the ```admin``` folder and all other translations for plugins, modules and the component to the ```site``` folder.
+
 # How to build language packs
 
-on the command line go to the root folder of this repository and run ```build.bat```. This will create installable zip files for each language. 
+## Windows
+On the command line go to the root folder of this repository and run ```build.bat```. This will create installable zip files for each language. 
 
 # How to install a language pack
 
