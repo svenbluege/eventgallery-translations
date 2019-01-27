@@ -19,6 +19,12 @@
 		<files folder="admin" target="administrator/language/fr-FR">
 			<filename>fr-FR.com_eventgallery.ini</filename>
 			<filename>fr-FR.com_eventgallery.sys.ini</filename>
+			<filename>fr-FR.plg_content_eventgallery_fields_category.ini</filename>
+			<filename>fr-FR.plg_content_eventgallery_fields_category.sys.ini</filename>
+			<filename>fr-FR.plg_content_eventgallery_multilangcontent.ini</filename>
+			<filename>fr-FR.plg_content_eventgallery_multilangcontent.sys.ini</filename>
+			<filename>fr-FR.plg_system_eventgallerycapabilitiesreport.ini</filename>
+			<filename>fr-FR.plg_system_eventgallerycapabilitiesreport.sys.ini</filename>
 		</files>
 
 		<!-- front-end -->
