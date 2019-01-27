@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metafile version="3.7" client="site">
+    <tag>fr-FR</tag>
+	<name>French (fr-FR) for Event Gallery</name>
+	<version>3.10.12</version>
+	<creationDate>01/02/2019</creationDate>
+	<author> </author>
+	<authorEmail> </authorEmail>
+	<authorUrl> </authorUrl>
+	<copyright> </copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<description>French administrator language for Event Gallery</description>
+	<metadata>
+		<name>Français (FR)</name>
+		<nativeName>Français (France)</nativeName> <!-- NEW in 3.7.0. Use the native alphabet here.-->
+		<tag>fr-FR</tag>
+		<locale>fr_FR.utf8, fr_FR.UTF-8, fr_FR.UTF-8@euro, fr_FR, fre_FR, fr, france</locale>
+	</metadata>
+	<params />
+</metafile>
