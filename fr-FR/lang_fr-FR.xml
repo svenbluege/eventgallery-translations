@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="file" version="3.0" method="upgrade">
 
-	<!-- Please use a unique name to make uninstall to work. Should be identical to your manifest filename. -->
+	<!-- Please use a unique name to make uninstall to work. Should be identical to your manifest filename (the filename of this file). -->
 	<name>lang_eventgallery__fr-FR</name>
 	<author> </author>
 	<creationDate>01/02/2019</creationDate>
-	<copyright></copyright>
+	<copyright> </copyright>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail> </authorEmail>
 	<authorUrl> </authorUrl>
@@ -17,24 +17,14 @@
 
 		<!-- back-end -->
 		<files folder="admin" target="administrator/language/fr-FR">
-			<filename>fr-FR.com_eventgallery.ini</filename>
-			<filename>fr-FR.com_eventgallery.sys.ini</filename>
-			<filename>fr-FR.plg_content_eventgallery_fields_category.ini</filename>
-			<filename>fr-FR.plg_content_eventgallery_fields_category.sys.ini</filename>
-			<filename>fr-FR.plg_content_eventgallery_multilangcontent.ini</filename>
-			<filename>fr-FR.plg_content_eventgallery_multilangcontent.sys.ini</filename>
-			<filename>fr-FR.plg_system_eventgallerycapabilitiesreport.ini</filename>
-			<filename>fr-FR.plg_system_eventgallerycapabilitiesreport.sys.ini</filename>
+			<!-- placeholder for the files. The build files will replace that -->
+			FILES_ADMIN
 		</files>
 
 		<!-- front-end -->
 		<files folder="site" target="language/fr-FR">
-			<filename>fr-FR.plg_content_eventgallery_fields_category.ini</filename>
-			<filename>fr-FR.plg_content_eventgallery_fields_category.sys.ini</filename>
-			<filename>fr-FR.plg_content_eventgallery_multilangcontent.ini</filename>
-			<filename>fr-FR.plg_content_eventgallery_multilangcontent.sys.ini</filename>
-			<filename>fr-FR.plg_system_eventgallerycapabilitiesreport.ini</filename>
-			<filename>fr-FR.plg_system_eventgallerycapabilitiesreport.sys.ini</filename>
+			<!-- placeholder for the files. The build files will replace that -->
+			FILES_SITE
 		</files>
 	</fileset>
 </extension>
