@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="file" version="3.0" method="upgrade">
+
+	<!-- Please use a unique name to make uninstall to work. Should be identical to your manifest filename. -->
+	<name>lang_eventgallery__it-IT</name>
+	<author> </author>
+	<creationDate>01/02/2019</creationDate>
+	<copyright></copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>nerviroberto@gmail.com</authorEmail>
+	<authorUrl> </authorUrl>
+	<version>1.0.0</version>
+	<description>This it-IT lang pack for Event Gallery has been installed successfully</description>
+
+	<!-- Fileset definition -->
+	<fileset>
+
+		<!-- back-end -->
+		<files folder="admin" target="administrator/language/it-IT">
+			<filename>it-IT.com_eventgallery.ini</filename>
+			<filename>it-IT.com_eventgallery.sys.ini</filename>
+			<filename>it-IT.plg_content_eventgallery_fields_category.ini</filename>
+			<filename>it-IT.plg_content_eventgallery_fields_category.sys.ini</filename>
+			<filename>it-IT.plg_content_eventgallery_multilangcontent.ini</filename>
+			<filename>it-IT.plg_content_eventgallery_multilangcontent.sys.ini</filename>
+			<filename>it-IT.plg_system_eventgallerycapabilitiesreport.ini</filename>
+			<filename>it-IT.plg_system_eventgallerycapabilitiesreport.sys.ini</filename>
+		</files>
+
+		<!-- front-end -->
+		<files folder="site" target="language/it-IT">
+
+			<filename>it-IT.com_eventgallery.ini</filename>
+			<filename>it-IT.mod_eventgallery_cart.ini</filename>
+			<filename>it-IT.mod_eventgallery_cart.sys.ini</filename>
+			<filename>it-IT.mod_eventgallery_categories.ini</filename>
+			<filename>it-IT.mod_eventgallery_categories.sys.ini</filename>
+			<filename>it-IT.mod_eventgallery_custom.ini</filename>
+			<filename>it-IT.mod_eventgallery_custom.sys.ini</filename>
+			<filename>it-IT.mod_eventgallery_event.ini</filename>
+			<filename>it-IT.mod_eventgallery_event.sys.ini</filename>
+			<filename>it-IT.mod_eventgallery_events.ini</filename>
+			<filename>it-IT.mod_eventgallery_events.sys.ini</filename>
+			<filename>it-IT.mod_eventgallery_latest.ini</filename>
+			<filename>it-IT.mod_eventgallery_latest.sys.ini</filename>
+			<filename>it-IT.plg_content_eventgallery.ini</filename>
+			<filename>it-IT.plg_content_eventgallery.sys.ini</filename>
+			<filename>it-IT.plg_content_eventgallery_fields_category.ini</filename>
+			<filename>it-IT.plg_content_eventgallery_fields_category.sys.ini</filename>
+			<filename>it-IT.plg_content_eventgallery_multilangcontent.ini</filename>
+			<filename>it-IT.plg_content_eventgallery_multilangcontent.sys.ini</filename>
+			<filename>it-IT.plg_editors-xtd_eventgallery.ini</filename>
+			<filename>it-IT.plg_editors-xtd_eventgallery.sys.ini</filename>
+			<filename>it-IT.plg_editors-xtd_eventgalleryimage.ini</filename>
+			<filename>it-IT.plg_editors-xtd_eventgalleryimage.sys.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_braintree.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_braintree.sys.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_paypal.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_paypal.sys.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_paypalbasic.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_paypalbasic.sys.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_paypalbasicconverter.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_paypalbasicconverter.sys.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_przelewy24.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_przelewy24.sys.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_standard.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_standard.sys.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_stripe.ini</filename>
+			<filename>it-IT.plg_eventgallery_pay_stripe.sys.ini</filename>
+			<filename>it-IT.plg_eventgallery_ship_download.ini</filename>
+			<filename>it-IT.plg_eventgallery_ship_download.sys.ini</filename>
+			<filename>it-IT.plg_eventgallery_ship_email.ini</filename>
+			<filename>it-IT.plg_eventgallery_ship_email.sys.ini</filename>
+			<filename>it-IT.plg_eventgallery_ship_standard.ini</filename>
+			<filename>it-IT.plg_eventgallery_ship_standard.sys.ini</filename>
+			<filename>it-IT.plg_eventgallery_sur_standard.ini</filename>
+			<filename>it-IT.plg_eventgallery_sur_standard.sys.ini</filename>
+			<filename>it-IT.plg_finder_eventgallery.ini</filename>
+			<filename>it-IT.plg_finder_eventgallery.sys.ini</filename>
+			<filename>it-IT.plg_installer_eventgallery.ini</filename>
+			<filename>it-IT.plg_installer_eventgallery.sys.ini</filename>
+			<filename>it-IT.plg_osmap_com_eventgallery.ini</filename>
+			<filename>it-IT.plg_osmap_com_eventgallery.sys.ini</filename>
+			<filename>it-IT.plg_search_eventgallery.ini</filename>
+			<filename>it-IT.plg_search_eventgallery.sys.ini</filename>
+			<filename>it-IT.plg_system_eventgallerycapabilitiesreport.ini</filename>
+			<filename>it-IT.plg_system_eventgallerycapabilitiesreport.sys.ini</filename>
+			<filename>it-IT.plg_system_picasaupdater.ini</filename>
+			<filename>it-IT.plg_system_picasaupdater.sys.ini</filename>
+
+		</files>
+	</fileset>
+</extension>
