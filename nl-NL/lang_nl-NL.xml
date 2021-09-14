@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="file" version="3.0" method="upgrade">
+
+	<!-- Please use a unique name to make uninstall to work. Should be identical to your manifest filename (the filename of this file). -->
+	<name>lang_eventgallery__nl-NL</name>
+	<author> </author>
+	<creationDate>14/09/2021</creationDate>
+	<copyright> </copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail> </authorEmail>
+	<authorUrl> </authorUrl>
+	<version>1.0.0</version>
+	<description>This nl-NL lang pack for Event Gallery has been installed successfully</description>
+
+	<!-- Fileset definition -->
+	<fileset>
+
+		<!-- back-end -->
+		<files folder="admin" target="administrator/language/nl-NL">
+			<!-- placeholder for the files. The build files will replace that -->
+			FILES_ADMIN
+		</files>
+
+		<!-- front-end -->
+		<files folder="site" target="language/nl-NL">
+			<!-- placeholder for the files. The build files will replace that -->
+			FILES_SITE
+		</files>
+	</fileset>
+</extension>
