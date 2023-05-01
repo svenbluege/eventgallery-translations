@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Build
 
 # Controls when the workflow will run
 on:
@@ -27,3 +27,8 @@ jobs:
 
       - name: Run a one-line script
         run: ./build.sh      
+        
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Language Files
+          path: ./*.zip
