@@ -1,10 +1,6 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Build
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
     branches: [ "master" ]
   pull_request:
@@ -13,22 +9,71 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# never publish two releases at the same time
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+    permissions:
+      # needed to publish the release
+      contents: write
 
-      - name: Run a one-line script
-        run: ./build.sh      
-        
-      - uses: actions/upload-artifact@v4
+    steps:
+      - uses: actions/checkout@v7
+
+      # creates dist/lang_eventgallery_<language>_<version>.zip for every language
+      - name: Build the language packs
+        run: ./build.sh
+
+      - name: Check the language packs
+        run: |
+          for PACKAGE in dist/*.zip; do
+            unzip -tq "$PACKAGE"
+          done
+          ls -l dist
+
+      # the language packs of this run, for pull requests and for testing
+      - uses: actions/upload-artifact@v7
         with:
-          name: Language Files
-          path: ./*.zip
+          name: language-packs
+          path: dist/*.zip
+          if-no-files-found: error
+
+      # The release "latest" always holds the language packs of the master
+      # branch, every language as a separate file.
+      - name: Publish the release
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: latest
+        run: |
+          {
+            echo "Language packs for Event Gallery, built from commit ${GITHUB_SHA}."
+            echo
+            echo "Download the file of your language and install it with the Joomla Extension Manager."
+            echo
+            echo "| Language | Version | File |"
+            echo "|---|---|---|"
+            for PACKAGE in dist/*.zip; do
+              NAME=$(basename "$PACKAGE")
+              LANGUAGE=$(echo "$NAME" | cut -d_ -f3)
+              VERSION=$(echo "$NAME" | cut -d_ -f4 | sed 's/\.zip$//')
+              echo "| $LANGUAGE | $VERSION | [$NAME](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/releases/download/${TAG}/${NAME}) |"
+            done
+          } > release-notes.md
+
+          # replace the previous release, so no outdated file stays behind
+          # and the tag points to the commit the packs are built from
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+            gh release delete "$TAG" --repo "$GITHUB_REPOSITORY" --cleanup-tag --yes
+          fi
+          gh release create "$TAG" dist/*.zip \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --title "Event Gallery language packs" \
+            --notes-file release-notes.md \
+            --latest

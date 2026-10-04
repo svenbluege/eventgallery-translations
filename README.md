@@ -19,13 +19,21 @@ In the manifest file you don't need to add all translation files manually. Just 
 
 # How to build language packs
 
+The build creates one installable zip file per language in the folder ```dist```. The name of a file contains the language and the version from the manifest of the language, for example ```lang_eventgallery_fr-FR_6.7.0.zip```.
+
+Set the version of a language pack with the ```version``` tag in its manifest file (```lang_fr-FR.xml```).
+
+## GitHub
+
+Every push to the master branch builds all language packs and publishes them as separate files of the release [latest](https://github.com/svenbluege/eventgallery-translations/releases/latest). For a pull request the language packs are attached to the workflow run as the artifact ```language-packs```.
+
 ## Windows
-On the command line go to the root folder of this repository and run ```build.bat```. This will create installable zip files for each language. 
+On the command line go to the root folder of this repository and run ```build.bat```.
 
 ## Linux
 
-Make sure ZIP is installed (```apt-get install zip```). Then run ```build.sh``` to create the language install script.
+Make sure ZIP is installed (```apt-get install zip```). Then run ```build.sh```.
 
 # How to install a language pack
 
-Just grab a zip file, for example fr_FR.zip, and install it using the Joomla Extension Manager. 
+Download the zip file of your language from the [latest release](https://github.com/svenbluege/eventgallery-translations/releases/latest), for example ```lang_eventgallery_fr-FR_6.7.0.zip```, and install it using the Joomla Extension Manager.

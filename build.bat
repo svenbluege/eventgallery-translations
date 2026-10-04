@@ -1,13 +1,27 @@
 @echo off
 setlocal EnableDelayedExpansion
 
+rem Builds one installable language pack per language folder:
+rem dist\lang_eventgallery_<language>_<version>.zip
+rem The version is taken from the manifest of the language (lang_<language>.xml).
+
+cd /d "%~dp0"
+
+set DIST=dist
+call :qrmRecursive %DIST%
+md %DIST%
+
 for /f %%G in ('dir /b /o:n /ad') do (
-	Set CURRENT_FOLDER=%%G
-	rem ignore the . folders
-	IF NOT "!CURRENT_FOLDER:~0,1!"=="." (
+	rem a language folder contains its manifest
+	IF EXIST %%G\lang_%%G.xml (
 		echo Found Language %%G
-		rem delete all the old language package
-		IF EXIST %%G.zipg del %%G.zip
+		set VERSION=
+		for /f "usebackq delims=" %%V in (`powershell -NoProfile -Command "([xml](Get-Content '%%G\lang_%%G.xml')).extension.version.Trim()"`) do set VERSION=%%V
+		IF "!VERSION!"=="" (
+			echo No version found in %%G\lang_%%G.xml
+			EXIT /B 1
+		)
+		set PACKAGE=lang_eventgallery_%%G_!VERSION!.zip
 		pushd .
 			rem create a temporary build folder, copy the site content
 			rem to the admin/site folder and add then the admin content
@@ -21,13 +35,14 @@ for /f %%G in ('dir /b /o:n /ad') do (
 			Xcopy /E /I /Y admin temp_build\admin > nul 2>&1
 			copy lang_%%G.xml temp_build\ > nul 2>&1
 			call :addFiles temp_build\admin  temp_build\lang_%%G.xml FILES_ADMIN
-            call :addFiles temp_build\site  temp_build\lang_%%G.xml FILES_SITE
+			call :addFiles temp_build\site  temp_build\lang_%%G.xml FILES_SITE
 			cd temp_build
-			zip -r -q ../../%%G.zip site admin lang_%%G.xml
+			rem the tar of Windows creates zip files, no additional tool is needed
+			%SystemRoot%\System32\tar.exe -a -c -f ..\..\%DIST%\!PACKAGE! site admin lang_%%G.xml
 		popd
 		rem clean up the temporary build folder
 		call :qrmRecursive %%G\temp_build
-		echo Translation package for %%G finished.
+		echo Translation package %DIST%\!PACKAGE! finished.
 	)
 )
 
