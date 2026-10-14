@@ -4,13 +4,13 @@
 	<!-- Please use a unique name to make uninstall to work. Should be identical to your manifest filename. -->
 	<name>lang_eventgallery_it-IT</name>
 	<author> </author>
-	<creationDate>2026-10-04</creationDate>
+	<creationDate>2026-10-05</creationDate>
 	<copyright></copyright>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>nerviroberto@gmail.com</authorEmail>
 	<authorUrl> </authorUrl>
-	<version>6.6.0</version>
-	<description>The it-IT language pack for Event Gallery 6.6 has been installed successfully.</description>
+	<version>7.0.0</version>
+	<description>The it-IT language pack for Event Gallery 7.0 has been installed successfully.</description>
 
 	<!-- Fileset definition -->
 	<fileset>
