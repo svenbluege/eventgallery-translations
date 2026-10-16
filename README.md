@@ -19,13 +19,15 @@ In the manifest file you don't need to add all translation files manually. Just 
 
 # How to build language packs
 
-The build creates one installable zip file per language in the folder ```dist```. The name of a file contains the language and the version from the manifest of the language, for example ```lang_eventgallery_fr-FR_6.6.0.zip```.
+The build creates one installable zip file per language in the folder ```dist```. The name of a file contains the language and the version, for example ```lang_eventgallery_fr-FR_7.0.0.23.zip```.
 
-Set the version of a language pack with the ```version``` tag in its manifest file (```lang_fr-FR.xml```).
+Set the version of Event Gallery a language pack is made for with the ```version``` tag in its manifest file (```lang_fr-FR.xml```), for example ```7.0.0```. The build adds the number of commits which changed the language folder as fourth part, so every change of a language results in a higher version like ```7.0.0.23```. Therefore the build needs the full git history.
+
+For the Joomla updater the build adds an update server to every language pack and writes the matching update file ```update_fr-FR.xml``` to the folder ```dist```.
 
 ## GitHub
 
-Every push to the master branch builds all language packs and publishes them as separate files of the release [latest](https://github.com/svenbluege/eventgallery-translations/releases/latest). For a pull request the language packs are attached to the workflow run as the artifact ```language-packs```.
+Every push to the master branch builds all language packs and publishes them together with the update files as separate files of the release [latest](https://github.com/svenbluege/eventgallery-translations/releases/latest). For a pull request the language packs are attached to the workflow run as the artifact ```language-packs```.
 
 ## Windows
 On the command line go to the root folder of this repository and run ```build.bat```.
@@ -36,4 +38,4 @@ Make sure ZIP is installed (```apt-get install zip```). Then run ```build.sh```.
 
 # How to install a language pack
 
-Download the zip file of your language from the [latest release](https://github.com/svenbluege/eventgallery-translations/releases/latest), for example ```lang_eventgallery_fr-FR_6.6.0.zip```, and install it using the Joomla Extension Manager.
+Download the zip file of your language from the [latest release](https://github.com/svenbluege/eventgallery-translations/releases/latest), for example ```lang_eventgallery_fr-FR_7.0.0.23.zip```, and install it using the Joomla Extension Manager. After that the Joomla updater offers every new language pack of your language.
