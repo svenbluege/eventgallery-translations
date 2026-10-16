@@ -24,8 +24,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
+        with:
+          # the build counts the commits of every language for its version
+          fetch-depth: 0
 
-      # creates dist/lang_eventgallery_<language>_<version>.zip for every language
+      # creates dist/lang_eventgallery_<language>_<version>.zip and
+      # dist/update_<language>.xml for every language
       - name: Build the language packs
         run: ./build.sh
 
@@ -40,11 +44,14 @@ jobs:
       - uses: actions/upload-artifact@v7
         with:
           name: language-packs
-          path: dist/*.zip
+          path: |
+            dist/*.zip
+            dist/*.xml
           if-no-files-found: error
 
       # The release "latest" always holds the language packs of the master
-      # branch, every language as a separate file.
+      # branch, every language as a separate file, and the update files
+      # update_<language>.xml the Joomla updater reads.
       - name: Publish the release
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
         env:
@@ -54,7 +61,7 @@ jobs:
           {
             echo "Language packs for Event Gallery, built from commit ${GITHUB_SHA}."
             echo
-            echo "Download the file of your language and install it with the Joomla Extension Manager."
+            echo "Download the file of your language and install it with the Joomla Extension Manager. After that the Joomla updater offers every new language pack."
             echo
             echo "| Language | Version | File |"
             echo "|---|---|---|"
@@ -71,7 +78,7 @@ jobs:
           if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
             gh release delete "$TAG" --repo "$GITHUB_REPOSITORY" --cleanup-tag --yes
           fi
-          gh release create "$TAG" dist/*.zip \
+          gh release create "$TAG" dist/*.zip dist/update_*.xml \
             --repo "$GITHUB_REPOSITORY" \
             --target "$GITHUB_SHA" \
             --title "Event Gallery language packs" \
